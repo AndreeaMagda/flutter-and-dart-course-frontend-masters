@@ -51,3 +51,5 @@ void main(List<String> args) {
   playingWithTypes();
   print("Done");
 }
+
+//everything is an object in dart
