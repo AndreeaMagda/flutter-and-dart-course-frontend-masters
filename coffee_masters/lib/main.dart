@@ -8,7 +8,36 @@ void main() {
 ///   MyApp
 ///      MyHomePage
 ///        HelloWorld
-///          Text   
+///          Text
+
+class Greet extends StatefulWidget {
+  const Greet({super.key});
+
+  @override
+  State<Greet> createState() => _GreetState();
+}
+
+class _GreetState extends State<Greet> {
+  //State variables
+  var name = "";
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Text("Hello $name"),
+            const Text(":)")
+          ],
+        ),
+        TextField(
+          onChanged: (value) => setState(() => name = value),
+        ),
+      ],
+    );
+  }
+}
 
 class HelloWorld extends StatelessWidget {
   const HelloWorld({Key? key}) : super(key: key);
@@ -53,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: HelloWorld(),
+      body: Greet(),
     );
   }
 }
