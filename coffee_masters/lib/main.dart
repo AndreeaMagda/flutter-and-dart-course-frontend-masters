@@ -23,16 +23,23 @@ class _GreetState extends State<Greet> {
 
   @override
   Widget build(BuildContext context) {
+    var greetStyle=const TextStyle(fontSize: 24);
     return Column(
       children: [
-        Row(
-          children: [
-            Text("Hello $name"),
-            const Text(":)")
-          ],
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Text("Hello $name", style: greetStyle,),
+               Text(":)", style: greetStyle,)
+            ],
+          ),
         ),
-        TextField(
-          onChanged: (value) => setState(() => name = value),
+        Padding(
+          padding: const EdgeInsets.only(right:24.0, left:24.0),
+          child: TextField(
+            onChanged: (value) => setState(() => name = value),
+          ),
         ),
       ],
     );
